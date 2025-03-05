@@ -8,10 +8,19 @@ let theThumbnails = document.querySelectorAll('#buttonHolder img'),
 
 // functions
 function changeImageSet() {
-    console.log('this is our test');
+    console.log('Changing puzzle background and resetting pieces');
 
     gameBoard.style.backgroundImage = `url(images/backGround${this.dataset.bgref}.jpg)`;
+
+    let originalContainer = document.querySelector('.puzzle-pieces');
+
+    dropZones.forEach(zone => {
+        while (zone.firstChild) {  
+            originalContainer.appendChild(zone.firstChild);
+        }
+    });
 }
+
 
 function allowDrag(event) {
     console.log('started dragging an image');
